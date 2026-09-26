@@ -1,0 +1,6 @@
+{
+  "name": "НаЧасі Кава — Передзамовлення до твого приходу",
+  "description": "Платформа передзамовлення свіжої кави за 5 хвилин до приходу в топові кав'ярні України. Без черг та очікування.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
