@@ -92,33 +92,29 @@ npm run preview
 
 ## 🌐 Інструкція з публікації (Деплой)
 
-### Варіант 1: Vercel (Найпростіший спосіб у 1 клік!) ⭐️
+### Варіант 1: GitHub Pages (Через готову папку `/docs` — без білого екрану!) ⭐️
+
+**Чому раніше виникав білий екран:**
+Якщо в налаштуваннях GitHub Pages обрати корінь `/(root)`, GitHub віддає сирий `index.html` з посиланням на TypeScript-файл `src/main.tsx`, який браузери не вміють запускати напряму.
+
+**Як запустити зараз (вже скомпільовано):**
+1. Завантажте оновлений проєкт на GitHub (у ньому вже створено скомпільовану папку `/docs`).
+2. У вашому репозиторії відкрийте вкладку **Settings** (угорі) → **Pages** (у лівому меню).
+3. У блоці **Build and deployment**:
+   - **Source:** оберіть `Deploy from a branch`
+   - **Branch:** оберіть `main` (або `master`)
+   - **Folder:** замість `/(root)` оберіть 👉 **/docs**!
+4. Натисніть **Save**.
+5. Зачекайте 30-60 секунд та оновіть сторінку вашого сайту — він запуститься ідеально!
+
+### Варіант 2: Vercel (1 клік без будь-яких налаштувань)
 1. Зайдіть на [vercel.com](https://vercel.com) та натисніть **Add New** → **Project**.
 2. Оберіть ваш репозиторій з GitHub.
-3. Vercel автоматично розпізнає конфігурацію Vite:
-   - **Framework Preset:** Vite
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-4. Натисніть **Deploy** — готовий робочий сайт з'явиться за 20 секунд з безкоштовним SSL-сертифікатом.
+3. Натисніть **Deploy** — Vercel автоматично збирає проєкт і видає готове посилання.
 
-### Варіант 2: Netlify
+### Варіант 3: Netlify
 1. Перейдіть на [netlify.com](https://netlify.com) → **Add new site** → **Import an existing project**.
-2. Оберіть репозиторій з GitHub.
-3. Налаштування:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-4. Натисніть **Deploy site**.
-
-### Варіант 3: GitHub Pages
-У проєкті вже налаштовано відносні шляхи (`base: './'`), тому збірка працює в будь-якому підкаталозі.
-1. Встановіть `gh-pages`: `npm install -D gh-pages`
-2. Додайте в `package.json`:
-   ```json
-   "scripts": {
-     "deploy": "npm run build && gh-pages -d dist"
-   }
-   ```
-3. Запустіть: `npm run deploy`
+2. Оберіть репозиторій з GitHub та натисніть **Deploy site**.
 
 ---
 
