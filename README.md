@@ -92,12 +92,14 @@ npm run preview
 
 ## 🌐 Інструкція з публікації (Деплой)
 
-### Варіант 1: Vercel (Рекомендовано)
-1. Створіть акаунт на [vercel.com](https://vercel.com) та підключіть ваш GitHub репозиторій.
-2. Vercel автоматично розпізнає **Vite**:
+### Варіант 1: Vercel (Найпростіший спосіб у 1 клік!) ⭐️
+1. Зайдіть на [vercel.com](https://vercel.com) та натисніть **Add New** → **Project**.
+2. Оберіть ваш репозиторій з GitHub.
+3. Vercel автоматично розпізнає конфігурацію Vite:
+   - **Framework Preset:** Vite
    - **Build Command:** `npm run build`
    - **Output Directory:** `dist`
-3. Натисніть **Deploy** — готовий сайт запрацює за 30 секунд.
+4. Натисніть **Deploy** — готовий робочий сайт з'явиться за 20 секунд з безкоштовним SSL-сертифікатом.
 
 ### Варіант 2: Netlify
 1. Перейдіть на [netlify.com](https://netlify.com) → **Add new site** → **Import an existing project**.
@@ -108,21 +110,15 @@ npm run preview
 4. Натисніть **Deploy site**.
 
 ### Варіант 3: GitHub Pages
-Для деплою на GitHub Pages можна використати утиліту `gh-pages`:
-```bash
-npm install -D gh-pages
-```
-Додайте в `package.json`:
-```json
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
-```
-Та виконайте:
-```bash
-npm run deploy
-```
+У проєкті вже налаштовано відносні шляхи (`base: './'`), тому збірка працює в будь-якому підкаталозі.
+1. Встановіть `gh-pages`: `npm install -D gh-pages`
+2. Додайте в `package.json`:
+   ```json
+   "scripts": {
+     "deploy": "npm run build && gh-pages -d dist"
+   }
+   ```
+3. Запустіть: `npm run deploy`
 
 ---
 
